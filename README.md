@@ -21,6 +21,7 @@ ghi label "Type - Feature"              -c 5319e7
 
  Git Aliases (.gitconfig) 
 ```
+[alias]
   co = checkout
   ci = commit
   st = status
