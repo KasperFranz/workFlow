@@ -46,7 +46,7 @@ gems:
 ```
 gem install ghi
 ghi update --version
-https://hub.github.com/
+download https://github.com/github/hub/releases og flyt den til rubys bin 
 ```
 
 .bashrc
