@@ -45,11 +45,15 @@ gems:
 
 ```
 gem install ghi
-ghi update --version
-download https://github.com/github/hub/releases og flyt den til rubys bin 
 ```
+
+download https://github.com/github/hub/releases og flyt den til rubys bin 
 
 .bashrc
 ```
 alias git=hub
 ```
+
+Auth with ghi 
+
+ghi config --auth YOUR_GITHUB_USER
