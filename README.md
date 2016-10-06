@@ -40,10 +40,11 @@ This is the workflow we are trying to use/build - feel free to make pull request
   issue-branch = "!f() { MATCH=#$1:; ghi show $1 2>/dev/null | grep ^$MATCH | sed   s/$MATCH/$1/g | sed 's/ /-/g' | sed s/[:\\']//g; }; f"
   issue-wip = "!f() { ghi label $1 'Status - in progress'; git remove-w-un $1; }; f"
   remove-w-un = "!f() { ghi label $1 -d 'Status - workable'; ghi label $1 -d 'Status - up next'; }; f"
-  work-on	= "!f() { BRANCH=`git issue-branch $1`; git fetch origin; git co $BRANCH   2> /dev/null || git co -b $BRANCH origin/`git default-branch`; git issue-wip $1; ghi assign $1;  }; f"
+  work-on = "!f() { BRANCH=`git issue-branch $1`; git fetch origin; git co $BRANCH   2> /dev/null || git co -b $BRANCH origin/`git default-branch`; git issue-wip $1; ghi assign $1;  }; f"
   wrapup    = "!f() { MSG='close #'`git symbolic-ref --short HEAD | sed 's/-/ /g'`; echo $MSG > ~/WRAPUP_EDITMSG; git addremove; git commit -F ~/WRAPUP_EDITMSG; rm ~/WRAPUP_EDITMSG; }; f"
-  deliver   = "!BRANCH=`git symbolic-ref --short HEAD`;REMOTEBRANCH=$BRANCH; MSG='close #'`git symbolic-ref --short HEAD | sed 's/-/ /g'`; git push origin $BRANCH:$REMOTEBRANCH && git branch -m delivered/$BRANCH && hub pull-request -f -h $REMOTEBRANCH -m 'close #'$MSG"
+  deliver   = "!BRANCH=`git symbolic-ref --short HEAD`; MSG='close #'`git symbolic-ref --short HEAD | sed 's/-/ /g'`; echo $MSG > ~/DELIVER_HEADLINE; git push origin $BRANCH:$BRANCH; hub pull-request -f -h $BRANCH -F ~/DELIVER_HEADLINE;  rm ~/DELIVER_HEADLINE;"
   issues = "!f(){ ghi list -L 'Status - workable'; }; f"
+  updatepr  = "!f(){BRANCH=`git symbolic-ref --short HEAD`; git addremove; git commit -m $1; git push origin $BRANCH:$BRANCH; }; f"
 
 ```
 
