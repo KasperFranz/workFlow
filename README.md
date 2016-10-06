@@ -2,13 +2,13 @@ This is the workflow we are trying to use/build - feel free to make pull request
 
 
 ### Table of Contents
-**[Setup](#setup)**  
-**[Git Aliases](#git-aliases-gitconfig)**  
-**[Workflow](#workflow)**  
-***[Working on Project xx](#working-on-project-xx)***
-***[Working on Project xx](#cleaning-up-your-branches)***
-***[Setup of a new project on GitHub](#setting-up-a-new-project-on-github)*** 
-**[Ressources](#ressources)** 
+*[Setup](#setup)
+*[Git Aliases](#git-aliases-gitconfig)
+**[Workflow](#workflow)
+..*[Working on Project xx](#working-on-project-xx)
+..*[Cleaning up your branches](#cleaning-up-your-branches)
+..*[Setup of a new project on GitHub](#setup-of-a-new-project-on-github)
+*[Ressources](#ressources)
 
 #Setup 
  To setup this workflow, we first need to install the gem *GHI* the command `gem install ghi` can/should be used for this.
