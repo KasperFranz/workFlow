@@ -26,7 +26,7 @@ This is the workflow we are trying to use/build - feel free to make pull request
 #Git Aliases (.gitconfig) 
  These are our aliases which are placed after a [alias] in your .gitconfig folder.
 ```
-  co = checkout
+    co = checkout
   ci = commit
   st = status
   br = branch
@@ -38,11 +38,13 @@ This is the workflow we are trying to use/build - feel free to make pull request
   purge-all-delivered = "!f() { git co `git default-branch`; git branch | grep 'delivered/' |   sed 's/delivered\\///g' | xargs -I %br sh -c 'git branch -D delivered/%br; git   push origin :%br' 2>/dev/null; }; f "
   default-branch = "!f(){ if git show-ref refs/heads/master >/dev/null 2>&1; then   echo master; elif git show-ref refs/heads/gh-pages >/dev/null 2>&1; then echo   gh-pages; fi; }; f"
   issue-branch = "!f() { MATCH=#$1:; ghi show $1 2>/dev/null | grep ^$MATCH | sed   s/$MATCH/$1/g | sed 's/ /-/g' | sed s/[:\\']//g; }; f"
-  issue-wip = "!f() { ghi label $1 'Status - in progress'; }; f"
-  work-on	= "!f() { BRANCH=`git issue-branch $1`; git fetch origin; git co $BRANCH   2> /dev/null || git co -b $BRANCH origin/`git default-branch`; git issue-wip $1; ghi assign $1;  }; f"
+  issue-wip = "!f() { ghi label $1 'Status - in progress'; git remove-w-un $1; }; f"
+  remove-w-un = "!f() { ghi label $1 -d 'Status - workable'; ghi label $1 -d 'Status - up next'; }; f"
+  work-on = "!f() { BRANCH=`git issue-branch $1`; git fetch origin; git co $BRANCH   2> /dev/null || git co -b $BRANCH origin/`git default-branch`; git issue-wip $1; ghi assign $1;  }; f"
   wrapup    = "!f() { MSG='close #'`git symbolic-ref --short HEAD | sed 's/-/ /g'`; echo $MSG > ~/WRAPUP_EDITMSG; git addremove; git commit -F ~/WRAPUP_EDITMSG; rm ~/WRAPUP_EDITMSG; }; f"
-  deliver   = "!BRANCH=`git symbolic-ref --short HEAD`;REMOTEBRANCH=$BRANCH; MSG='close #'`git symbolic-ref --short HEAD | sed 's/-/ /g'`; git push origin $BRANCH:$REMOTEBRANCH && git branch -m delivered/$BRANCH && hub pull-request -f -h $REMOTEBRANCH -m 'close #'$MSG"
+  deliver   = "!BRANCH=`git symbolic-ref --short HEAD`; MSG='close #'`git symbolic-ref --short HEAD | sed 's/-/ /g'`; echo $MSG > ~/DELIVER_HEADLINE; git push origin $BRANCH:$BRANCH; hub pull-request -f -h $BRANCH -F ~/DELIVER_HEADLINE;  rm ~/DELIVER_HEADLINE;"
   issues = "!f(){ ghi list -L 'Status - workable'; }; f"
+  updatepr  = "!f(){ BRANCH=`git symbolic-ref --short HEAD`; echo $@ > ~/UPDATE_HEADLINE; git addremove; git commit -F ~/UPDATE_HEADLINE ; git push origin $BRANCH:$BRANCH; }; f"
 
 ```
 
@@ -85,12 +87,38 @@ These are some of the more normal workflows and some of the ones you might end u
   ghi label "Status - duplicate"          -c 111111
   ghi label "Status - workable"           -c EDEDED
   ghi label "Status - in progress"        -c EDEDED
-  ghi label "Status - up Next"            -c EEEEEE
+  ghi label "Status - up next"            -c EEEEEE
   ghi label "Type - Bug"                  -c b60205
   ghi label "Type - Feature"              -c 5319e7
  ```
 
  Once this is changed then we should begin to setup waffle
+
+
+#Definations
+## Actions
+The assigned person needs to do something - the issue is in a blocked state.
+
+##Priorities
+
+##Size
+ The size is set by the developer or by the product owner.
+
+### 0 - Briefing
+ This requires to be broken down to smaller pieces and sub tasks.
+
+### 1 - Small
+ This indicates it can be done in less than 2 hours.
+
+### 2 - Medium
+The task takes up to 5 hours to complete.
+
+### 3 - Large
+The task takes a full day of work (8 hours)
+
+### 4 - Too big
+The task is too big to be done in one day and has to be broken down in to smaller tasks.
+
 
 #Ressources
  We are to this setup using the following projects:
