@@ -53,7 +53,7 @@ These are some of the more normal workflows and some of the ones you might end u
 
  When you are all done with this issue you should deliver it for review, this is done with `git deliver`, this also changes your branch to a called deliverd/ this is so you easily can see that you are done with this issue.
 
- ##Cleaning up your branches
+##Cleaning up your branches
  When you have worked on issues for some time you get alot of delivered/ branches, these can be cleared with the command `git purge-all-delivered` which deletes the branches starting with delivered/ on your local repository.
 
 
