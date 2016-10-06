@@ -1,6 +1,15 @@
 This is the workflow we are trying to use/build - feel free to make pull requests if there is something you want to change, a workflow you want to describe etc.
 
 
+### Table of Contents
+**[Setup](#setup)**  
+**[Git Aliases](#git-aliases-gitconfig)**  
+**[Workflow](#workflow)**  
+***[Working on Project xx](#working-on-project-xx)***
+***[Working on Project xx](#cleaning-up-your-branches)***
+***[Setup of a new project on GitHub](#setting-up-a-new-project-on-github)*** 
+**[Ressources](#ressources)** 
+
 #Setup 
  To setup this workflow, we first need to install the gem *GHI* the command `gem install ghi` can/should be used for this.
 
@@ -57,7 +66,7 @@ These are some of the more normal workflows and some of the ones you might end u
  When you have worked on issues for some time you get alot of delivered/ branches, these can be cleared with the command `git purge-all-delivered` which deletes the branches starting with delivered/ on your local repository.
 
 
-## setting up a new project on Github
+##Setup of a new project on GitHub
  First we need to clear the old labels and set our labels to be assigned - this can be done with the following commands 
 
  ```
