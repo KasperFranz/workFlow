@@ -57,37 +57,34 @@ These are some of the more normal workflows and some of the ones you might end u
  When you have worked on issues for some time you get alot of delivered/ branches, these can be cleared with the command `git purge-all-delivered` which deletes the branches starting with delivered/ on your local repository.
 
 
+## setting up a new project on Github
+ First we need to clear the old labels and set our labels to be assigned - this can be done with the following commands 
+
+ ```
+  ghi label -l | sed "s/\'/\\\'/g" | xargs -I %lb sh -c 'ghi label -D "%lb"'
+  ghi label "Action - awaiting feed-back" -c 6EB82C
+  ghi label "Action - needs grooming"     -c 009800
+  ghi label "Prio 1 - must have"          -c E83D0F
+  ghi label "Prio 2 - should have"        -c EB6420
+  ghi label "Prio 3 - could have"         -c E8850F
+  ghi label "Prio 4 - won't have"         -c E8A80F
+  ghi label "Size 0 - Briefing"           -c C7DEF8
+  ghi label "Size 1 - small"              -c 20B4E5
+  ghi label "Size 2 - medium"             -c 208FE5
+  ghi label "Size 3 - large"              -c 0052CC
+  ghi label "Size 4 - too big"            -c 100B6B
+  ghi label "Status - duplicate"          -c 111111
+  ghi label "Status - workable"           -c EDEDED
+  ghi label "Status - in progress"        -c EDEDED
+  ghi label "Status - up Next"            -c EEEEEE
+  ghi label "Type - Bug"                  -c b60205
+  ghi label "Type - Feature"              -c 5319e7
+ ```
+
+ Once this is changed then we should begin to setup waffle
+
 #Ressources
  We are to this setup using the following projects:
  - [GHI](https://github.com/stephencelis/ghi) - We use this for a easy way to show the issues on the github project
  - [Hub](https://github.com/github/hub) - This is used to make pull requests etc.
-
-
-ghi label "Action - awaiting feed-back" -c 6EB82C
-ghi label "Action - needs grooming"     -c 009800
-ghi label "Prio 1 - must have"          -c E83D0F
-ghi label "Prio 2 - should have"        -c EB6420
-ghi label "Prio 3 - could have"         -c E8850F
-ghi label "Prio 4 - won't have"         -c E8A80F
-ghi label "Size 0 - Briefing"           -c C7DEF8
-ghi label "Size 1 - small"              -c 20B4E5
-ghi label "Size 2 - medium"             -c 208FE5
-ghi label "Size 3 - large"              -c 0052CC
-ghi label "Size 4 - too big"            -c 100B6B
-ghi label "Status - duplicate"          -c 111111
-ghi label "Status - workable"           -c EDEDED
-ghi label "Status - in progress"        -c EDEDED
-ghi label "Status - up Next"            -c EEEEEE
-ghi label "Type - Bug"                  -c b60205
-ghi label "Type - Feature"              -c 5319e7
-
-
-
-.bashrc
-```
-alias git=hub
-```
-
-Auth with ghi 
-
-ghi config --auth YOUR_GITHUB_USER
+ - [Praqma workflow](http://www.praqma.com/stories/a-pragmatic-workflow/) - The inspiration for this project and 
