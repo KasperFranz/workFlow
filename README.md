@@ -1,7 +1,8 @@
 
 #Setup 
  To setup this workflow, we first need to install the gem *GHI* the command `gem install ghi` can/should be used for this.
- after it is installed we need to set it up - this is done with the command `ghi config --auth <username>` when it is done correctly it will add a token to your gitconfig.
+
+ After it is installed we need to set it up - this is done with the command `ghi config --auth <username>` when it is done correctly it will add a token to your gitconfig.
 
  Once GHI is installed you need to install hub - this can be downloaded as a binary at [https://github.com/github/hub/releases](hub github release) The easiest is to place this exe (from the bin folder in the zip) in your ruby bin folder, as this is already in your PATH.
 
@@ -9,7 +10,7 @@
 
  Now all the requirements for the setup is done, now to the important part, which is our aliases copy the aliases from the section Git Aliases and place them into your .gitconfig  (it is in  your home folder).
 
- You are now all set :simple_smile:, read through the Workflow section for some of the most used workflows. 
+ You are now all set :simple_smile: - now read through the Workflow section for some of the most used workflows. 
 
 #Git Aliases (.gitconfig) 
  These are our aliases which are placed after a [alias] in your .gitconfig folder.
