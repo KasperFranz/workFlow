@@ -26,7 +26,7 @@ This is the workflow we are trying to use/build - feel free to make pull request
 #Git Aliases (.gitconfig) 
  These are our aliases which are placed after a [alias] in your .gitconfig folder.
 ```
-  co = checkout
+    co = checkout
   ci = commit
   st = status
   br = branch
@@ -44,7 +44,7 @@ This is the workflow we are trying to use/build - feel free to make pull request
   wrapup    = "!f() { MSG='close #'`git symbolic-ref --short HEAD | sed 's/-/ /g'`; echo $MSG > ~/WRAPUP_EDITMSG; git addremove; git commit -F ~/WRAPUP_EDITMSG; rm ~/WRAPUP_EDITMSG; }; f"
   deliver   = "!BRANCH=`git symbolic-ref --short HEAD`; MSG='close #'`git symbolic-ref --short HEAD | sed 's/-/ /g'`; echo $MSG > ~/DELIVER_HEADLINE; git push origin $BRANCH:$BRANCH; hub pull-request -f -h $BRANCH -F ~/DELIVER_HEADLINE;  rm ~/DELIVER_HEADLINE;"
   issues = "!f(){ ghi list -L 'Status - workable'; }; f"
-  updatepr  = "!f(){BRANCH=`git symbolic-ref --short HEAD`; git addremove; git commit -m $1; git push origin $BRANCH:$BRANCH; }; f"
+  updatepr  = "!f(){ BRANCH=`git symbolic-ref --short HEAD`; echo $@ > ~/UPDATE_HEADLINE; git addremove; git commit -F ~/UPDATE_HEADLINE ; git push origin $BRANCH:$BRANCH; }; f"
 
 ```
 
