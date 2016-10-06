@@ -39,8 +39,6 @@
  - [https://github.com/github/hub](Hub) - This is used to make pull requests etc.
 
 
-
-
 ghi label "Action - awaiting feed-back" -c 6EB82C
 ghi label "Action - needs grooming"     -c 009800
 ghi label "Prio 1 - must have"          -c E83D0F
@@ -58,4 +56,19 @@ ghi label "Status - in progress"        -c EDEDED
 ghi label "Status - up Next"            -c EEEEEE
 ghi label "Type - Bug"                  -c b60205
 ghi label "Type - Feature"              -c 5319e7
- 
+
+
+```
+gem install ghi
+```
+
+download https://github.com/github/hub/releases og flyt den til rubys bin 
+
+.bashrc
+```
+alias git=hub
+```
+
+Auth with ghi 
+
+ghi config --auth YOUR_GITHUB_USER
