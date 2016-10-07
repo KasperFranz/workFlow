@@ -9,6 +9,7 @@ This is the workflow we are trying to use/build - feel free to make pull request
    * [Cleaning up your branches](#cleaning-up-your-branches)
    * [Setup of a new project on GitHub](#setup-of-a-new-project-on-github)
  * [Ressources](#ressources)
+ * [Current Issues](#current-issues)
 
 #Setup 
  To setup this workflow, we first need to install the gem *GHI* the command `gem install ghi` can/should be used for this.
@@ -26,7 +27,7 @@ This is the workflow we are trying to use/build - feel free to make pull request
 #Git Aliases (.gitconfig) 
  These are our aliases which are placed after a [alias] in your .gitconfig folder.
 ```
-    co = checkout
+  co = checkout
   ci = commit
   st = status
   br = branch
@@ -124,4 +125,9 @@ The task is too big to be done in one day and has to be broken down in to smalle
  We are to this setup using the following projects:
  - [GHI](https://github.com/stephencelis/ghi) - We use this for a easy way to show the issues on the github project
  - [Hub](https://github.com/github/hub) - This is used to make pull requests etc.
- - [Praqma workflow](http://www.praqma.com/stories/a-pragmatic-workflow/) - The inspiration for this project and 
+ - [Praqma workflow](http://www.praqma.com/stories/a-pragmatic-workflow) - The inspiration for this project and 
+
+
+
+#Current issues
+ - Removing of old branches, as these are not 1-1 with the ones on remote - should they be? 
