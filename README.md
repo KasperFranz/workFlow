@@ -38,7 +38,7 @@ This is the workflow we are trying to use/build - feel free to make pull request
   co = checkout
   purge-all-delivered = "!f() { git co `git default-branch`; git branch | grep 'delivered/' |   sed 's/delivered\\///g' | xargs -I %br sh -c 'git branch -D delivered/%br; git   push origin :%br' 2>/dev/null; }; f "
   default-branch = "!f(){ if git show-ref refs/heads/master >/dev/null 2>&1; then   echo master; elif git show-ref refs/heads/gh-pages >/dev/null 2>&1; then echo   gh-pages; fi; }; f"
-  issue-branch = "!f() { MATCH=#$1:; ghi show $1 2>/dev/null | grep ^$MATCH | sed   s/$MATCH/$1/g | sed 's/ /-/g' | sed s/[:\\']//g; }; f"
+  issue-branch = "!f() { MATCH=#$1:; ghi show $1 2>/dev/null | grep ^$MATCH | sed s/$MATCH/$1/g | sed s/[^a-zA-Z0-9[:space:]]//g | sed 's/ /-/g' ; }; f"
   issue-wip = "!f() { ghi label $1 'Status - in progress'; git remove-w-un $1; }; f"
   remove-w-un = "!f() { ghi label $1 -d 'Status - workable'; ghi label $1 -d 'Status - up next'; }; f"
   work-on = "!f() { BRANCH=`git issue-branch $1`; git fetch origin; git co $BRANCH   2> /dev/null || git co -b $BRANCH origin/`git default-branch`; git issue-wip $1; ghi assign $1;  }; f"
