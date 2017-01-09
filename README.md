@@ -46,6 +46,7 @@ This is the workflow we are trying to use/build - feel free to make pull request
   deliver   = "!BRANCH=`git symbolic-ref --short HEAD`; MSG='close #'`git symbolic-ref --short HEAD | sed 's/-/ /g'`; echo $MSG > ~/DELIVER_HEADLINE; git push origin $BRANCH:$BRANCH; hub pull-request -f -h $BRANCH -F ~/DELIVER_HEADLINE;  rm ~/DELIVER_HEADLINE;"
   issues = "!f(){ ghi list -L 'Status - workable'; }; f"
   updatepr  = "!f(){ BRANCH=`git symbolic-ref --short HEAD`; echo $@ > ~/UPDATE_HEADLINE; git addremove; git commit -F ~/UPDATE_HEADLINE ; git push origin $BRANCH:$BRANCH; }; f"
+  goto      = "!f(){ BRANCH=`git issue-branch $1`; git fetch origin; git co $BRANCH; }; f"
 
 ```
 
