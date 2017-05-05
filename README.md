@@ -78,7 +78,7 @@ These are some of the more normal workflows and some of the ones you might end u
  ```
   ghi label -l | sed "s/\'/\\\'/g" | xargs -I %lb sh -c 'ghi label -D "%lb"'
   ghi label "Action - awaiting feed-back" -c 6EB82C
-  ghi label "Action - awaiting external" -c #0eda16
+  ghi label "Action - awaiting external" -c 0eda16
   ghi label "Action - needs grooming"     -c 009800
   ghi label "Prio 1 - must have"          -c E83D0F
   ghi label "Prio 2 - should have"        -c EB6420
