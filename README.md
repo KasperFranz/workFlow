@@ -11,7 +11,7 @@ This is the workflow we are trying to use/build - feel free to make pull request
  * [Ressources](#ressources)
  * [Current Issues](#current-issues)
 
-#Setup 
+# Setup 
  To setup this workflow, we first need to install the gem *GHI* the command `gem install ghi` can/should be used for this.
 
  After it is installed we need to set it up - this is done with the command `ghi config --auth <username>` when it is done correctly it will add a token to your gitconfig.
@@ -24,7 +24,7 @@ This is the workflow we are trying to use/build - feel free to make pull request
 
  You are now all set :smile: - now read through the Workflow section for some of the most used workflows. 
 
-#Git Aliases (.gitconfig) 
+# Git Aliases (.gitconfig) 
  These are our aliases which are placed after a [alias] in your .gitconfig folder.
 ```
   co = checkout
@@ -50,10 +50,10 @@ This is the workflow we are trying to use/build - feel free to make pull request
 
 ```
 
-#Workflow
+# Workflow
 These are some of the more normal workflows and some of the ones you might end up needing.
 
-##Working on project xx
+## Working on project xx
  Working on issue xx would normally mean you start by looking at the issue on the issue tracker, and finding out which ones you should start on, this should be done 100% through the command line.
 
  You first find the issue you should work on by doing `git issues`, if you are in a git repository while doing this it shows the issues there are workable in this repository, elseit will show you the ones overall assigned to you.
@@ -66,13 +66,13 @@ These are some of the more normal workflows and some of the ones you might end u
 
  When you are all done with this issue you should deliver it for review, this is done with `git deliver`, this also changes your branch to a called deliverd/ this is so you easily can see that you are done with this issue.
 
-##Cleaning up your branches
+## Cleaning up your branches
  <del>When you have worked on issues for some time you get alot of delivered/ branches, these can be cleared with the command `git purge-all-delivered` which deletes the branches starting with delivered/ on your local repository.</del>
  
  This is currently not possible.
 
 
-##Setup of a new project on GitHub
+## Setup of a new project on GitHub
  First we need to clear the old labels and set our labels to be assigned - this can be done with the following commands 
 
  ```
@@ -100,7 +100,7 @@ These are some of the more normal workflows and some of the ones you might end u
  Once this is changed then we should begin to setup waffle
 
 
-#Definations
+# Definations
 ## Actions
 The assigned person needs to do something - the issue is in a blocked state.
 
@@ -125,7 +125,7 @@ The task takes a full day of work (8 hours)
 The task is too big to be done in one day and has to be broken down in to smaller tasks.
 
 
-#Ressources
+# Ressources
  We are to this setup using the following projects:
  - [GHI](https://github.com/stephencelis/ghi) - We use this for a easy way to show the issues on the github project
  - [Hub](https://github.com/github/hub) - This is used to make pull requests etc.
@@ -133,5 +133,5 @@ The task is too big to be done in one day and has to be broken down in to smalle
 
 
 
-#Current issues
+# Current issues
  - Removing of old branches, as these are not 1-1 with the ones on remote - should they be? 
