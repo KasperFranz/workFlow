@@ -104,9 +104,9 @@ These are some of the more normal workflows and some of the ones you might end u
 ## Actions
 The assigned person needs to do something - the issue is in a blocked state.
 
-##Priorities
+## Priorities
 
-##Size
+## Size
  The size is set by the developer or by the product owner.
 
 ### 0 - Briefing
